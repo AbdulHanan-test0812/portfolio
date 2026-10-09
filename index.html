@@ -612,7 +612,7 @@
         async submit() {
           this.tried = true;
           if (!this.valid) { this.$nextTick(() => this.$root.querySelector('.invalid')?.focus()); return; }
-          if (this.accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') { this.error = 'Form abhi connect nahi hua: Web3Forms access key add karein.'; return; }
+          if (this.accessKey === '816488b1-e73f-4347-9b87-487e013fb750') { this.error = 'Form abhi connect nahi hua: Web3Forms access key add karein.'; return; }
           this.sending = true; this.error = '';
           try {
             const res = await fetch('https://api.web3forms.com/submit', {
