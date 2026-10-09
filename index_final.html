@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abdul Hanan | Senior Digital Growth Strategist & Full-Stack Web Developer</title>
+  <meta name="description" content="Abdul Hanan helps e-commerce brands, SaaS companies and high-ticket businesses scale through Facebook Ads, TikTok Ads, technical SEO and custom web development." />
+  <meta name="theme-color" content="#0F172A" />
+  <meta property="og:title" content="Abdul Hanan | Digital Growth Strategist & Web Developer" />
+  <meta property="og:description" content="Turning cold traffic into predictable revenue through data-driven ad performance and high-converting web solutions." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%236366f1'/><text x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'>AH</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            base: '#0F172A',
+            raised: '#131c33',
+            brand: { 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5' },
+            aqua: { 400: '#22d3ee', 500: '#06b6d4' }
+          }
+        }
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root { color-scheme: dark; }
+    body { background: #0F172A; font-feature-settings: "ss01", "cv11"; -webkit-font-smoothing: antialiased; }
+    ::selection { background: rgba(99,102,241,.45); color: #fff; }
+
+    /* Ambient background */
+    .ambient::before, .ambient::after {
+      content: ""; position: absolute; border-radius: 9999px; filter: blur(110px); opacity: .5; pointer-events: none; z-index: 0;
+    }
+    .ambient::before { width: 540px; height: 540px; background: #4f46e5; top: -180px; left: -140px; opacity: .32; }
+    .ambient::after  { width: 460px; height: 460px; background: #06b6d4; top: 80px; right: -160px; opacity: .2; }
+    .grid-fade {
+      background-image: linear-gradient(rgba(148,163,184,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.07) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 30%, transparent 75%);
+    }
+
+    /* Glass surfaces */
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.025));
+      border: 1px solid rgba(255,255,255,.09);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 24px 48px -24px rgba(2,6,23,.7);
+    }
+    .glass-hover { transition: transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s, box-shadow .35s; }
+    .glass-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(129,140,248,.45);
+      box-shadow: 0 1px 0 rgba(255,255,255,.08) inset, 0 28px 60px -24px rgba(79,70,229,.45);
+    }
+
+    .grad-text { background: linear-gradient(100deg, #a5b4fc 0%, #818cf8 35%, #22d3ee 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* Glow button */
+    .btn-glow {
+      position: relative; background: linear-gradient(135deg, #6366f1, #4f46e5 55%, #0891b2);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.14) inset, 0 10px 30px -8px rgba(99,102,241,.75), 0 0 40px -6px rgba(34,211,238,.35);
+      transition: transform .25s ease, box-shadow .25s ease, filter .25s;
+    }
+    .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 0 0 1px rgba(255,255,255,.2) inset, 0 16px 38px -8px rgba(99,102,241,.9), 0 0 56px -4px rgba(34,211,238,.5); filter: brightness(1.06); }
+    .btn-glow:active { transform: translateY(0); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.18); transition: background .25s, border-color .25s, transform .25s; }
+    .btn-outline:hover { background: rgba(255,255,255,.06); border-color: rgba(129,140,248,.6); transform: translateY(-2px); }
+
+    /* Focus */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible {
+      outline: 2px solid #22d3ee; outline-offset: 3px; border-radius: 10px;
+    }
+
+    /* Range slider */
+    input[type=range].slider { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 9999px; outline-offset: 8px;
+      background: linear-gradient(90deg, #6366f1 var(--p, 0%), rgba(255,255,255,.12) var(--p, 0%)); }
+    input[type=range].slider::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; border-radius: 9999px; background: #fff; border: 5px solid #6366f1; box-shadow: 0 0 0 6px rgba(99,102,241,.25), 0 6px 18px rgba(0,0,0,.45); cursor: grab; transition: box-shadow .2s; }
+    input[type=range].slider::-webkit-slider-thumb:hover { box-shadow: 0 0 0 10px rgba(99,102,241,.28), 0 6px 18px rgba(0,0,0,.45); }
+    input[type=range].slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 9999px; background: #fff; border: 5px solid #6366f1; box-shadow: 0 0 0 6px rgba(99,102,241,.25); cursor: grab; }
+
+    /* Form fields */
+    .field { width: 100%; background: rgba(15,23,42,.65); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: .85rem 1rem; color: #e2e8f0; transition: border-color .2s, box-shadow .2s, background .2s; }
+    .field::placeholder { color: #64748b; }
+    .field:hover { border-color: rgba(255,255,255,.22); }
+    .field:focus { outline: none; border-color: #818cf8; box-shadow: 0 0 0 4px rgba(99,102,241,.2); background: rgba(15,23,42,.9); }
+    .field.invalid { border-color: #f87171; box-shadow: 0 0 0 4px rgba(248,113,113,.15); }
+    select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.6rem; }
+    select.field option { background: #0F172A; color: #e2e8f0; }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0ms); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Hero chart draw */
+    .draw { stroke-dasharray: 700; stroke-dashoffset: 700; animation: draw 2.2s .5s cubic-bezier(.4,0,.2,1) forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .float-slow { animation: floaty 7s ease-in-out infinite; }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .pulse-dot { animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,.6); } 70% { box-shadow: 0 0 0 9px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+
+    .bar { transition: width .9s cubic-bezier(.2,.8,.2,1); }
+    [x-cloak] { display: none !important; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .draw { animation: none; stroke-dashoffset: 0; }
+      .float-slow, .pulse-dot { animation: none; }
+      .bar, .glass-hover, .btn-glow, .btn-outline { transition: none; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-slate-300 antialiased" x-data="{ menu: false }" @keydown.escape.window="menu = false">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="fixed top-0 inset-x-0 z-50" x-data="{ scrolled: false }" @scroll.window="scrolled = window.scrollY > 24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 pt-3">
+      <nav aria-label="Primary" class="flex items-center justify-between rounded-2xl px-4 sm:px-5 py-3 transition-all duration-300"
+           :class="scrolled ? 'glass' : 'border border-transparent'">
+        <a href="#top" class="flex items-center gap-2.5 font-bold text-white tracking-tight">
+          <span class="grid place-items-center h-9 w-9 rounded-xl bg-gradient-to-br from-brand-500 to-aqua-500 text-sm font-extrabold shadow-lg shadow-indigo-500/30">AH</span>
+          <span class="hidden sm:block">Abdul Hanan</span>
+        </a>
+        <ul class="hidden lg:flex items-center gap-1 text-sm font-medium">
+          <li><a class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition" href="#services">Services</a></li>
+          <li><a class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition" href="#work">Case Studies</a></li>
+          <li><a class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition" href="#calculator">ROAS Calculator</a></li>
+          <li><a class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition" href="#process">Framework</a></li>
+          <li><a class="px-3.5 py-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition" href="#reviews">Reviews</a></li>
+        </ul>
+        <div class="flex items-center gap-2">
+          <a href="#contact" class="btn-glow hidden sm:inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-white">
+            <i data-lucide="calendar-check" class="h-4 w-4"></i> Book a Free Call
+          </a>
+          <button class="lg:hidden grid place-items-center h-10 w-10 rounded-xl border border-white/10 hover:bg-white/5" @click="menu = !menu" :aria-expanded="menu" aria-controls="mobile-menu" aria-label="Toggle menu">
+            <i data-lucide="menu" class="h-5 w-5" x-show="!menu"></i>
+            <i data-lucide="x" class="h-5 w-5" x-show="menu" x-cloak></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" x-show="menu" x-cloak x-transition.opacity.duration.200ms class="lg:hidden mt-2 glass rounded-2xl p-3" @click.outside="menu = false">
+        <ul class="flex flex-col text-sm font-medium">
+          <li><a @click="menu=false" class="block px-4 py-3 rounded-xl hover:bg-white/5" href="#services">Services</a></li>
+          <li><a @click="menu=false" class="block px-4 py-3 rounded-xl hover:bg-white/5" href="#work">Case Studies</a></li>
+          <li><a @click="menu=false" class="block px-4 py-3 rounded-xl hover:bg-white/5" href="#calculator">ROAS Calculator</a></li>
+          <li><a @click="menu=false" class="block px-4 py-3 rounded-xl hover:bg-white/5" href="#process">Framework</a></li>
+          <li><a @click="menu=false" class="block px-4 py-3 rounded-xl hover:bg-white/5" href="#reviews">Reviews</a></li>
+          <li class="pt-2"><a @click="menu=false" href="#contact" class="btn-glow flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-semibold text-white"><i data-lucide="calendar-check" class="h-4 w-4"></i> Book a Free Call</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ 1. HERO ============ -->
+    <section id="top" class="ambient relative isolate overflow-hidden pt-32 sm:pt-40 pb-16 sm:pb-24">
+      <div class="grid-fade absolute inset-0 -z-10"></div>
+      <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid items-center gap-14 lg:grid-cols-12">
+
+          <div class="lg:col-span-7">
+            <div class="reveal inline-flex items-center gap-2.5 rounded-full glass px-4 py-2 text-xs sm:text-sm font-medium text-slate-200">
+              <span class="h-2 w-2 rounded-full bg-emerald-400 pulse-dot"></span>
+              Senior Digital Growth Strategist & Full-Stack Web Developer
+            </div>
+
+            <h1 class="reveal mt-7 text-4xl sm:text-5xl lg:text-[3.6rem] font-extrabold leading-[1.08] tracking-tight text-white" style="--d:80ms">
+              Scaling Brands Through <span class="grad-text">Data-Driven Marketing</span> &amp; High-Converting Web Engineering.
+            </h1>
+
+            <p class="reveal mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-slate-300" style="--d:160ms">
+              I help e-commerce brands, SaaS companies, and high-ticket businesses acquire high-value customers through Facebook Ads, TikTok Ads, SEO, and custom web development.
+            </p>
+
+            <div class="reveal mt-9 flex flex-col sm:flex-row gap-3.5" style="--d:240ms">
+              <a href="#contact" class="btn-glow inline-flex items-center justify-center gap-2.5 rounded-2xl px-7 py-4 text-base font-semibold text-white">
+                <i data-lucide="calendar-check" class="h-5 w-5"></i> Book a Free Growth Call
+              </a>
+              <a href="#work" class="btn-outline inline-flex items-center justify-center gap-2.5 rounded-2xl px-7 py-4 text-base font-semibold text-white">
+                <i data-lucide="line-chart" class="h-5 w-5"></i> View Client Case Studies
+              </a>
+            </div>
+
+            <p class="reveal mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-400" style="--d:320ms">
+              <span class="inline-flex items-center gap-2"><i data-lucide="shield-check" class="h-4 w-4 text-emerald-400"></i> No long-term lock-in</span>
+              <span class="inline-flex items-center gap-2"><i data-lucide="eye" class="h-4 w-4 text-emerald-400"></i> Full reporting transparency</span>
+              <span class="inline-flex items-center gap-2"><i data-lucide="globe" class="h-4 w-4 text-emerald-400"></i> Working with brands worldwide</span>
+            </p>
+          </div>
+
+          <!-- Hero performance card -->
+          <div class="lg:col-span-5 reveal" style="--d:200ms">
+            <div class="relative float-slow">
+              <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-brand-500/30 to-aqua-500/20 blur-2xl"></div>
+              <div class="glass relative rounded-3xl p-5 sm:p-6">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-xs text-slate-400">Blended ROAS, last 90 days</p>
+                    <p class="mt-1 text-3xl font-extrabold text-white">4.8x</p>
+                  </div>
+                  <span class="inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300 ring-1 ring-emerald-400/30">
+                    <i data-lucide="trending-up" class="h-3.5 w-3.5"></i> +242%
+                  </span>
+                </div>
+
+                <svg viewBox="0 0 400 170" class="mt-5 w-full" role="img" aria-label="Line chart showing ROAS rising from 1.4x to 4.8x over 90 days">
+                  <defs>
+                    <linearGradient id="area" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#6366f1" stop-opacity=".45"/><stop offset="1" stop-color="#6366f1" stop-opacity="0"/></linearGradient>
+                    <linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+                  </defs>
+                  <g stroke="rgba(148,163,184,.14)" stroke-width="1">
+                    <line x1="0" y1="30" x2="400" y2="30"/><line x1="0" y1="75" x2="400" y2="75"/><line x1="0" y1="120" x2="400" y2="120"/><line x1="0" y1="160" x2="400" y2="160"/>
+                  </g>
+                  <path d="M0 140 C40 136, 60 128, 95 120 S150 104, 190 88 S250 62, 290 44 S350 22, 400 12 L400 170 L0 170 Z" fill="url(#area)"/>
+                  <path class="draw" d="M0 140 C40 136, 60 128, 95 120 S150 104, 190 88 S250 62, 290 44 S350 22, 400 12" fill="none" stroke="url(#line)" stroke-width="3.5" stroke-linecap="round"/>
+                  <circle cx="400" cy="12" r="6" fill="#22d3ee"/><circle cx="400" cy="12" r="12" fill="#22d3ee" opacity=".25"/>
+                </svg>
+
+                <div class="mt-5 grid grid-cols-3 gap-3 text-center">
+                  <div class="rounded-2xl bg-white/5 p-3 ring-1 ring-white/10">
+                    <p class="text-xs text-slate-400">Revenue</p><p class="mt-1 font-bold text-white">$450k</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/5 p-3 ring-1 ring-white/10">
+                    <p class="text-xs text-slate-400">CAC</p><p class="mt-1 font-bold text-emerald-300">-32%</p>
+                  </div>
+                  <div class="rounded-2xl bg-white/5 p-3 ring-1 ring-white/10">
+                    <p class="text-xs text-slate-400">Timeline</p><p class="mt-1 font-bold text-white">90 days</p>
+                  </div>
+                </div>
+                <p class="mt-4 text-center text-xs text-slate-500">Fashion e-commerce client, Facebook &amp; TikTok Ads</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="reveal mt-16 sm:mt-20 glass rounded-3xl p-2" style="--d:120ms">
+          <dl class="grid grid-cols-2 lg:grid-cols-4 divide-white/10 [&>div]:p-5 sm:[&>div]:p-7">
+            <div class="border-b border-r border-white/10 lg:border-b-0">
+              <dt class="order-2 mt-1 text-sm text-slate-400">Tracked Revenue Generated</dt>
+              <dd class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"><span data-count="1.5" data-prefix="$" data-suffix="M+" data-dec="1">$1.5M+</span></dd>
+            </div>
+            <div class="border-b border-white/10 lg:border-b-0 lg:border-r">
+              <dt class="mt-1 text-sm text-slate-400">Average ROAS</dt>
+              <dd class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"><span data-count="4.2" data-suffix="x" data-dec="1">4.2x</span></dd>
+            </div>
+            <div class="border-r border-white/10">
+              <dt class="mt-1 text-sm text-slate-400">High-Performance Websites Built</dt>
+              <dd class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"><span data-count="120" data-suffix="+" data-dec="0">120+</span></dd>
+            </div>
+            <div>
+              <dt class="mt-1 text-sm text-slate-400">Client Retention Rate</dt>
+              <dd class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight"><span data-count="98" data-suffix="%" data-dec="0">98%</span></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. TECH STACK ============ -->
+    <section id="stack" class="relative py-16 sm:py-24" aria-labelledby="stack-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl">
+          <h2 id="stack-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">The platforms and tools behind every campaign</h2>
+          <p class="mt-4 text-slate-400 leading-relaxed">Ad platforms, analytics, SEO research and a modern engineering stack, so strategy, tracking and the website all work as one system.</p>
+        </div>
+
+        <ul class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:0ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-blue-500/15 text-blue-400 ring-1 ring-blue-400/30"><i data-lucide="megaphone" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">Meta Business Suite</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:40ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-pink-500/15 text-pink-400 ring-1 ring-pink-400/30"><i data-lucide="music-2" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">TikTok Ads Manager</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:80ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-amber-500/15 text-amber-400 ring-1 ring-amber-400/30"><i data-lucide="bar-chart-3" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">Google Analytics 4 (GA4)</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:120ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-sky-500/15 text-sky-400 ring-1 ring-sky-400/30"><i data-lucide="tags" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">Google Tag Manager</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:160ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-orange-500/15 text-orange-400 ring-1 ring-orange-400/30"><i data-lucide="search-check" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">Ahrefs / SEMrush</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:0ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-cyan-500/15 text-cyan-300 ring-1 ring-cyan-300/30"><i data-lucide="atom" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">React / Next.js</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:40ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-teal-500/15 text-teal-300 ring-1 ring-teal-300/30"><i data-lucide="wind" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">Tailwind CSS</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3" style="--d:80ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-emerald-500/15 text-emerald-300 ring-1 ring-emerald-300/30"><i data-lucide="shopping-bag" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">WordPress / Shopify</span></li>
+          <li class="reveal glass glass-hover rounded-2xl p-4 flex items-center gap-3 col-span-2 sm:col-span-1 lg:col-span-1" style="--d:120ms"><span class="grid place-items-center h-11 w-11 rounded-xl bg-fuchsia-500/15 text-fuchsia-300 ring-1 ring-fuchsia-300/30"><i data-lucide="figma" class="h-5 w-5"></i></span><span class="text-sm font-semibold text-slate-100 leading-tight">Figma</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 3. SERVICES ============ -->
+    <section id="services" class="relative py-16 sm:py-24" aria-labelledby="services-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl">
+          <h2 id="services-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Four disciplines, one growth engine</h2>
+          <p class="mt-4 text-slate-400 leading-relaxed">Most agencies split paid media, SEO and web into separate teams. I run them together, so the traffic you buy lands on pages built to convert it.</p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-2">
+          <!-- FB -->
+          <article class="reveal glass glass-hover group relative overflow-hidden rounded-3xl p-7 sm:p-8">
+            <div class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-blue-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-blue-500/15 text-blue-400 ring-1 ring-blue-400/30 group-hover:scale-110 transition"><i data-lucide="megaphone" class="h-6 w-6"></i></span>
+            <h3 class="mt-6 text-xl font-bold text-white">Facebook &amp; Instagram Ads</h3>
+            <p class="mt-2 text-sm text-slate-400">Full-funnel Meta campaigns engineered around profitable customer acquisition, not vanity reach.</p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-200">
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Campaign Architecture</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Dynamic Creative Optimization (DCO)</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Retargeting Funnels</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Pixel &amp; CAPI Setup</li>
+            </ul>
+          </article>
+
+          <!-- TikTok -->
+          <article class="reveal glass glass-hover group relative overflow-hidden rounded-3xl p-7 sm:p-8" style="--d:80ms">
+            <div class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-pink-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-pink-500/15 text-pink-400 ring-1 ring-pink-400/30 group-hover:scale-110 transition"><i data-lucide="music-2" class="h-6 w-6"></i></span>
+            <h3 class="mt-6 text-xl font-bold text-white">TikTok Ads</h3>
+            <p class="mt-2 text-sm text-slate-400">Native-feeling creative systems that stop the scroll and scale at a low cost per acquisition.</p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-200">
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Viral Hook Strategies</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> UGC Ad Frameworks</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Spark Ads</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Low-CAC Scaling Strategies</li>
+            </ul>
+          </article>
+
+          <!-- SEO -->
+          <article class="reveal glass glass-hover group relative overflow-hidden rounded-3xl p-7 sm:p-8">
+            <div class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-orange-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-orange-500/15 text-orange-400 ring-1 ring-orange-400/30 group-hover:scale-110 transition"><i data-lucide="search-check" class="h-6 w-6"></i></span>
+            <h3 class="mt-6 text-xl font-bold text-white">Technical &amp; On-Page SEO</h3>
+            <p class="mt-2 text-sm text-slate-400">Compounding organic traffic built on a technically sound site and content that targets buyer intent.</p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-200">
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Technical Audits</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Keyword Domination</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Core Web Vitals Optimization</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Organic Traffic Scaling</li>
+            </ul>
+          </article>
+
+          <!-- Web -->
+          <article class="reveal glass glass-hover group relative overflow-hidden rounded-3xl p-7 sm:p-8" style="--d:80ms">
+            <div class="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-cyan-500/20 blur-3xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+            <span class="grid place-items-center h-12 w-12 rounded-2xl bg-cyan-500/15 text-cyan-300 ring-1 ring-cyan-300/30 group-hover:scale-110 transition"><i data-lucide="code-2" class="h-6 w-6"></i></span>
+            <h3 class="mt-6 text-xl font-bold text-white">Website Development</h3>
+            <p class="mt-2 text-sm text-slate-400">Fast, conversion-focused websites and web apps designed and engineered by the same person running your ads.</p>
+            <ul class="mt-6 space-y-3 text-sm text-slate-200">
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> High-Converting Landing Pages</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Custom Web Applications</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Speed Optimization</li>
+              <li class="flex gap-3"><i data-lucide="check-circle-2" class="h-5 w-5 shrink-0 text-emerald-400"></i> Modern UI/UX</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. CASE STUDIES ============ -->
+    <section id="work" class="relative py-16 sm:py-24" aria-labelledby="work-title"
+      x-data="{
+        cases: [
+          { tag: 'E-Commerce Brand', icon: 'shopping-bag', title: 'Scaled Fashion Brand to $450k in 90 Days using Facebook & TikTok Ads.', channels: 'Facebook Ads · TikTok Ads', view: 'after',
+            metrics: [
+              { label: 'ROAS', before: '1.4x', after: '4.8x', bp: 29, ap: 96 },
+              { label: 'Customer Acquisition Cost (index)', before: '100', after: '68', bp: 100, ap: 68, note: '32% reduction in CAC' }
+            ] },
+          { tag: 'SaaS / B2B', icon: 'server', title: 'Complete Web Redesign & Technical SEO Strategy for B2B Tech Firm.', channels: 'Web Development · Technical SEO', view: 'after',
+            metrics: [
+              { label: 'Organic Lead Growth (index)', before: '100', after: '310', bp: 32, ap: 100, note: '+210% organic leads' },
+              { label: 'Page Load Speed', before: '3.4s', after: '<0.8s', bp: 100, ap: 24, note: 'Sub-0.8s load speed' },
+              { label: 'Target Keyword Ranking', before: 'Page 2', after: '#1', bp: 22, ap: 100, note: 'Rank #1 for target keywords' }
+            ] },
+          { tag: 'Local Business Scaling', icon: 'map-pin', title: 'Hyper-Targeted Lead Generation Campaign for High-Ticket Services.', channels: 'Facebook Ads · Lead Funnels', view: 'after',
+            metrics: [
+              { label: 'Qualified Leads per 30 Days', before: '85', after: '340+', bp: 25, ap: 100, note: '340+ qualified leads in 30 days' },
+              { label: 'Cost Per Lead (CPL)', before: '$34', after: '$12', bp: 100, ap: 35, note: '$12 cost per lead' }
+            ] }
+        ]
+      }">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl">
+          <h2 id="work-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Results you can verify, not vague promises</h2>
+          <p class="mt-4 text-slate-400 leading-relaxed">Three recent engagements. Flip each card between the starting point and the outcome to see exactly what changed.</p>
+        </div>
+
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          <template x-for="(c, i) in cases" :key="i">
+            <article class="reveal glass glass-hover flex flex-col rounded-3xl p-6 sm:p-7" :style="`--d:${i*90}ms`">
+              <div class="flex items-center justify-between gap-3">
+                <span class="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1.5 text-xs font-semibold text-indigo-200 ring-1 ring-white/10" x-text="c.tag"></span>
+                <span class="text-xs text-slate-500" x-text="c.channels"></span>
+              </div>
+
+              <h3 class="mt-5 text-lg font-bold leading-snug text-white" x-text="c.title"></h3>
+
+              <!-- Toggle -->
+              <div class="mt-6 inline-flex w-full rounded-xl bg-slate-900/70 p-1 ring-1 ring-white/10" role="tablist" :aria-label="'Before and after for ' + c.tag">
+                <button type="button" role="tab" :aria-selected="c.view === 'before'" @click="c.view = 'before'"
+                  class="flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition"
+                  :class="c.view === 'before' ? 'bg-white/10 text-white shadow' : 'text-slate-400 hover:text-slate-200'">Before</button>
+                <button type="button" role="tab" :aria-selected="c.view === 'after'" @click="c.view = 'after'"
+                  class="flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition"
+                  :class="c.view === 'after' ? 'bg-gradient-to-r from-brand-500 to-aqua-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'">After</button>
+              </div>
+
+              <div class="mt-6 space-y-6" aria-live="polite">
+                <template x-for="m in c.metrics" :key="m.label">
+                  <div>
+                    <div class="flex items-end justify-between gap-3">
+                      <p class="text-sm text-slate-400" x-text="m.label"></p>
+                      <p class="text-2xl font-extrabold tabular-nums" :class="c.view === 'after' ? 'text-white' : 'text-slate-400'" x-text="c.view === 'after' ? m.after : m.before"></p>
+                    </div>
+                    <div class="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-white/10">
+                      <div class="bar h-full rounded-full" :class="c.view === 'after' ? 'bg-gradient-to-r from-brand-500 to-aqua-400' : 'bg-slate-500'" :style="`width:${c.view === 'after' ? m.ap : m.bp}%`"></div>
+                    </div>
+                    <p class="mt-1.5 text-xs font-medium text-emerald-300 h-4" x-show="c.view === 'after' && m.note" x-text="m.note"></p>
+                  </div>
+                </template>
+              </div>
+            </article>
+          </template>
+        </div>
+        <p class="mt-6 text-xs text-slate-500">Results reflect specific client engagements and will vary by industry, offer, budget and market conditions.</p>
+      </div>
+    </section>
+
+    <!-- ============ 5. ROAS CALCULATOR ============ -->
+    <section id="calculator" class="relative py-16 sm:py-24" aria-labelledby="calc-title"
+      x-data="{
+        budget: 10000,
+        low: 3.5, high: 4.5,
+        get pct() { return ((this.budget - 1000) / (50000 - 1000)) * 100 },
+        get revLow() { return this.budget * this.low },
+        get revHigh() { return this.budget * this.high },
+        get revMid() { return this.budget * ((this.low + this.high) / 2) },
+        get profitLow() { return this.revLow - this.budget },
+        get annual() { return this.revMid * 12 },
+        fmt(n) { return '$' + Math.round(n).toLocaleString('en-US') }
+      }">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="relative overflow-hidden rounded-[2rem] glass p-6 sm:p-10 lg:p-14 reveal">
+          <div class="pointer-events-none absolute -left-24 -bottom-24 h-80 w-80 rounded-full bg-brand-500/25 blur-3xl"></div>
+          <div class="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-aqua-500/15 blur-3xl"></div>
+
+          <div class="relative grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+            <div>
+              <h2 id="calc-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">See what your ad budget could return</h2>
+              <p class="mt-4 text-slate-300 leading-relaxed max-w-lg">Slide your monthly ad spend to see estimated revenue at a 3.5x to 4.5x target ROAS, the range I aim for across optimized, well-structured accounts.</p>
+
+              <div class="mt-10">
+                <div class="flex items-baseline justify-between">
+                  <label for="budget" class="text-sm font-semibold text-slate-200">Monthly ad budget</label>
+                  <output for="budget" class="text-3xl font-extrabold text-white tabular-nums" x-text="fmt(budget)"></output>
+                </div>
+                <input id="budget" type="range" class="slider mt-5" min="1000" max="50000" step="500" x-model.number="budget" :style="`--p:${pct}%`" aria-label="Monthly ad budget in US dollars" />
+                <div class="mt-3 flex justify-between text-xs text-slate-500"><span>$1,000</span><span>$25,000</span><span>$50,000</span></div>
+              </div>
+
+              <div class="mt-8 flex items-start gap-3 rounded-2xl bg-white/5 p-4 text-sm text-slate-400 ring-1 ring-white/10">
+                <i data-lucide="info" class="mt-0.5 h-4 w-4 shrink-0 text-indigo-300"></i>
+                <p>Estimates only. Actual returns depend on your product, margins, offer, creative and market. A free strategy session gives you a realistic projection for your business.</p>
+              </div>
+            </div>
+
+            <div>
+              <div class="rounded-3xl bg-slate-900/60 p-6 sm:p-8 ring-1 ring-white/10">
+                <p class="text-sm text-slate-400">Estimated monthly revenue</p>
+                <p class="mt-2 text-3xl sm:text-[2.6rem] leading-tight font-extrabold tabular-nums text-white">
+                  <span class="grad-text" x-text="fmt(revLow)"></span>
+                  <span class="text-slate-500 text-2xl font-semibold mx-1">to</span>
+                  <span class="grad-text" x-text="fmt(revHigh)"></span>
+                </p>
+
+                <!-- Range bars -->
+                <div class="mt-7 space-y-4" aria-hidden="true">
+                  <div>
+                    <div class="mb-1.5 flex justify-between text-xs text-slate-400"><span>Ad spend</span><span class="tabular-nums" x-text="fmt(budget)"></span></div>
+                    <div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar h-full rounded-full bg-slate-400" :style="`width:${(budget/revHigh)*100}%`"></div></div>
+                  </div>
+                  <div>
+                    <div class="mb-1.5 flex justify-between text-xs text-slate-400"><span>Revenue at 3.5x ROAS</span><span class="tabular-nums" x-text="fmt(revLow)"></span></div>
+                    <div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar h-full rounded-full bg-gradient-to-r from-brand-500 to-brand-400" :style="`width:${(revLow/revHigh)*100}%`"></div></div>
+                  </div>
+                  <div>
+                    <div class="mb-1.5 flex justify-between text-xs text-slate-400"><span>Revenue at 4.5x ROAS</span><span class="tabular-nums" x-text="fmt(revHigh)"></span></div>
+                    <div class="h-3 rounded-full bg-white/10 overflow-hidden"><div class="bar h-full rounded-full bg-gradient-to-r from-brand-500 to-aqua-400 w-full"></div></div>
+                  </div>
+                </div>
+
+                <dl class="mt-8 grid grid-cols-2 gap-3">
+                  <div class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                    <dt class="text-xs text-slate-400">Revenue after ad spend (low case)</dt>
+                    <dd class="mt-1 text-lg font-bold text-emerald-300 tabular-nums" x-text="fmt(profitLow)"></dd>
+                  </div>
+                  <div class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                    <dt class="text-xs text-slate-400">Projected annual revenue (mid case)</dt>
+                    <dd class="mt-1 text-lg font-bold text-white tabular-nums" x-text="fmt(annual)"></dd>
+                  </div>
+                </dl>
+
+                <a href="#contact" class="btn-glow mt-7 flex w-full items-center justify-center gap-2.5 rounded-2xl px-6 py-4 text-base font-semibold text-white"
+                   @click="$dispatch('prefill-budget', { budget })">
+                  <i data-lucide="sparkles" class="h-5 w-5"></i> Claim Your Custom Strategy
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. PROCESS ============ -->
+    <section id="process" class="relative py-16 sm:py-24" aria-labelledby="process-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl">
+          <h2 id="process-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Why work with me: a 4-step scaling framework</h2>
+          <p class="mt-4 text-slate-400 leading-relaxed">A repeatable process that finds the leaks first, then scales what works. No guesswork, no budget burned on assumptions.</p>
+        </div>
+
+        <ol class="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <li class="reveal glass glass-hover relative rounded-3xl p-6">
+            <span class="grid place-items-center h-11 w-11 rounded-full bg-gradient-to-br from-brand-500 to-aqua-500 text-sm font-extrabold text-white shadow-lg shadow-indigo-500/30">1</span>
+            <h3 class="mt-5 text-lg font-bold text-white">Audit &amp; Funnel Inspection</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Identifying drop-offs and ad inefficiencies across your tracking, campaigns and customer journey.</p>
+          </li>
+          <li class="reveal glass glass-hover relative rounded-3xl p-6" style="--d:80ms">
+            <span class="grid place-items-center h-11 w-11 rounded-full bg-gradient-to-br from-brand-500 to-aqua-500 text-sm font-extrabold text-white shadow-lg shadow-indigo-500/30">2</span>
+            <h3 class="mt-5 text-lg font-bold text-white">Asset &amp; Web Optimization</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Rebuilding landing pages and creative assets for maximum conversion before more budget goes in.</p>
+          </li>
+          <li class="reveal glass glass-hover relative rounded-3xl p-6" style="--d:160ms">
+            <span class="grid place-items-center h-11 w-11 rounded-full bg-gradient-to-br from-brand-500 to-aqua-500 text-sm font-extrabold text-white shadow-lg shadow-indigo-500/30">3</span>
+            <h3 class="mt-5 text-lg font-bold text-white">Omnichannel Scaling</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Launching high-converting Facebook and TikTok ad campaigns, with SEO compounding underneath.</p>
+          </li>
+          <li class="reveal glass glass-hover relative rounded-3xl p-6" style="--d:240ms">
+            <span class="grid place-items-center h-11 w-11 rounded-full bg-gradient-to-br from-brand-500 to-aqua-500 text-sm font-extrabold text-white shadow-lg shadow-indigo-500/30">4</span>
+            <h3 class="mt-5 text-lg font-bold text-white">Continuous CRO &amp; Data Optimization</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-400">Iterative A/B testing that turns every campaign's data into the next round of growth.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 7. TESTIMONIALS ============ -->
+    <section id="reviews" class="relative py-16 sm:py-24" aria-labelledby="reviews-title">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="reveal max-w-2xl">
+          <h2 id="reviews-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">What clients say after working together</h2>
+          <p class="mt-4 text-slate-400 leading-relaxed">Performance, speed, clear communication, the three things that decide whether a partnership lasts.</p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-3">
+          <figure class="reveal glass glass-hover flex flex-col rounded-3xl p-7">
+            <div class="flex gap-0.5 text-amber-400" aria-label="5 out of 5 stars"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
+            <blockquote class="mt-5 flex-1 text-[15px] leading-relaxed text-slate-200">"Our ROAS had been stuck around 1.4x for months. Within one quarter Abdul rebuilt the account structure and the creative pipeline, and we crossed $450k with a lower acquisition cost. The reporting was refreshingly honest."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+              <span class="grid place-items-center h-11 w-11 rounded-full bg-gradient-to-br from-pink-500 to-orange-400 text-sm font-bold text-white">SK</span>
+              <div><p class="text-sm font-semibold text-white">Sarah Kim</p><p class="text-xs text-slate-400">Founder, fashion e-commerce brand</p></div>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal glass glass-hover flex flex-col rounded-3xl p-7" style="--d:80ms">
+            <div class="flex gap-0.5 text-amber-400" aria-label="5 out of 5 stars"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
+            <blockquote class="mt-5 flex-1 text-[15px] leading-relaxed text-slate-200">"The new site loads in under a second and our organic leads more than tripled. It is rare to find one person who can handle the technical SEO, the design and the code, and who explains it all in plain language."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+              <span class="grid place-items-center h-11 w-11 rounded-full bg-gradient-to-br from-brand-500 to-aqua-500 text-sm font-bold text-white">MR</span>
+              <div><p class="text-sm font-semibold text-white">Michael Reyes</p><p class="text-xs text-slate-400">VP Marketing, B2B software company</p></div>
+            </figcaption>
+          </figure>
+
+          <figure class="reveal glass glass-hover flex flex-col rounded-3xl p-7" style="--d:160ms">
+            <div class="flex gap-0.5 text-amber-400" aria-label="5 out of 5 stars"><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i></div>
+            <blockquote class="mt-5 flex-1 text-[15px] leading-relaxed text-slate-200">"We went from sporadic enquiries to a steady stream of qualified leads at $12 each. Weekly updates, quick replies and zero fluff. He treats our budget like it is his own."</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+              <span class="grid place-items-center h-11 w-11 rounded-full bg-gradient-to-br from-emerald-500 to-teal-400 text-sm font-bold text-white">DP</span>
+              <div><p class="text-sm font-semibold text-white">Daniel Price</p><p class="text-xs text-slate-400">Owner, high-ticket home services</p></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. LEAD CAPTURE ============ -->
+    <section id="contact" class="relative py-16 sm:py-24" aria-labelledby="contact-title"
+      x-data="{
+        accessKey: 'YOUR_WEB3FORMS_ACCESS_KEY', /* <-- yahan apni Web3Forms access key paste karein */
+        sent: false, sending: false, tried: false, error: '',
+        f: { name: '', email: '', url: '', service: '', budget: '' },
+        get errors() {
+          const e = {};
+          if (this.f.name.trim().length < 2) e.name = 'Enter your full name.';
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.f.email)) e.email = 'Enter a valid email address.';
+          if (!/^(https?:\/\/)?([\w-]+\.)+[\w-]{2,}(\/\S*)?$/i.test(this.f.url.trim())) e.url = 'Enter your website, e.g. yourbrand.com.';
+          if (!this.f.service) e.service = 'Choose a service.';
+          if (!this.f.budget) e.budget = 'Choose a budget range.';
+          return e;
+        },
+        get valid() { return Object.keys(this.errors).length === 0 },
+        async submit() {
+          this.tried = true;
+          if (!this.valid) { this.$nextTick(() => this.$root.querySelector('.invalid')?.focus()); return; }
+          if (this.accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') { this.error = 'Form abhi connect nahi hua: Web3Forms access key add karein.'; return; }
+          this.sending = true; this.error = '';
+          try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({
+                access_key: this.accessKey,
+                subject: 'New strategy session request from ' + this.f.name,
+                from_name: 'Portfolio Website',
+                name: this.f.name,
+                email: this.f.email,
+                website: this.f.url,
+                service: this.f.service,
+                monthly_budget: this.f.budget,
+                botcheck: this.$root.querySelector('[name=botcheck]').checked
+              })
+            });
+            const data = await res.json();
+            if (res.ok && data.success) { this.sent = true; }
+            else { this.error = 'Your request could not be sent. Please try again or email me directly.'; }
+          } catch (e) {
+            this.error = 'Network error. Please check your connection and try again.';
+          }
+          this.sending = false;
+        }
+      }"
+      @prefill-budget.window="
+        const b = $event.detail.budget;
+        f.budget = b < 3000 ? 'Under $3,000' : b < 10000 ? '$3,000 - $10,000' : b < 25000 ? '$10,000 - $25,000' : '$25,000+';
+      ">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-14">
+
+          <div class="reveal lg:col-span-5">
+            <h2 id="contact-title" class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">Let's map out your next stage of growth</h2>
+            <p class="mt-4 text-slate-300 leading-relaxed">Book a free 30-minute strategy session. You'll leave with a clear read on where your funnel is leaking and what to fix first, whether or not we work together.</p>
+
+            <ul class="mt-8 space-y-5">
+              <li class="flex gap-4"><span class="grid place-items-center h-11 w-11 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 ring-1 ring-brand-400/30"><i data-lucide="search" class="h-5 w-5"></i></span><div><p class="font-semibold text-white">Quick funnel and account review</p><p class="text-sm text-slate-400">I look at your ads, site and tracking before we speak.</p></div></li>
+              <li class="flex gap-4"><span class="grid place-items-center h-11 w-11 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 ring-1 ring-brand-400/30"><i data-lucide="target" class="h-5 w-5"></i></span><div><p class="font-semibold text-white">A prioritized action plan</p><p class="text-sm text-slate-400">The highest-impact changes, ranked, with expected outcomes.</p></div></li>
+              <li class="flex gap-4"><span class="grid place-items-center h-11 w-11 shrink-0 rounded-xl bg-brand-500/15 text-brand-400 ring-1 ring-brand-400/30"><i data-lucide="clock" class="h-5 w-5"></i></span><div><p class="font-semibold text-white">Reply within one business day</p><p class="text-sm text-slate-400">A real person, not an autoresponder.</p></div></li>
+            </ul>
+          </div>
+
+          <div class="reveal lg:col-span-7" style="--d:100ms">
+            <div class="glass relative overflow-hidden rounded-3xl p-6 sm:p-9">
+              <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-500/20 blur-3xl"></div>
+
+              <!-- Success -->
+              <div x-show="sent" x-cloak x-transition class="relative py-10 text-center" role="status">
+                <span class="mx-auto grid place-items-center h-16 w-16 rounded-full bg-emerald-400/15 text-emerald-300 ring-1 ring-emerald-400/40"><i data-lucide="check" class="h-8 w-8"></i></span>
+                <h3 class="mt-6 text-2xl font-bold text-white">Request received</h3>
+                <p class="mx-auto mt-3 max-w-md text-slate-300">Thanks, <span x-text="f.name.split(' ')[0]"></span>. I'll review <span class="font-semibold text-white" x-text="f.url"></span> and email you at <span class="font-semibold text-white" x-text="f.email"></span> within one business day to schedule your session.</p>
+                <button type="button" class="btn-outline mt-8 rounded-xl px-5 py-3 text-sm font-semibold text-white" @click="sent=false; tried=false; f={name:'',email:'',url:'',service:'',budget:''}">Send another request</button>
+              </div>
+
+              <!-- Form -->
+              <form x-show="!sent" @submit.prevent="submit()" novalidate class="relative grid gap-5 sm:grid-cols-2" aria-label="Book a free strategy session">
+                <div>
+                  <label for="f-name" class="mb-2 block text-sm font-semibold text-slate-200">Name</label>
+                  <input id="f-name" type="text" autocomplete="name" placeholder="Jane Cooper" class="field" x-model="f.name" :class="tried && errors.name && 'invalid'" :aria-invalid="tried && !!errors.name" />
+                  <p class="mt-1.5 text-xs text-red-300" x-show="tried && errors.name" x-text="errors.name"></p>
+                </div>
+                <div>
+                  <label for="f-email" class="mb-2 block text-sm font-semibold text-slate-200">Work email</label>
+                  <input id="f-email" type="email" autocomplete="email" placeholder="jane@company.com" class="field" x-model="f.email" :class="tried && errors.email && 'invalid'" :aria-invalid="tried && !!errors.email" />
+                  <p class="mt-1.5 text-xs text-red-300" x-show="tried && errors.email" x-text="errors.email"></p>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="f-url" class="mb-2 block text-sm font-semibold text-slate-200">Website URL</label>
+                  <input id="f-url" type="text" inputmode="url" autocomplete="url" placeholder="yourbrand.com" class="field" x-model="f.url" :class="tried && errors.url && 'invalid'" :aria-invalid="tried && !!errors.url" />
+                  <p class="mt-1.5 text-xs text-red-300" x-show="tried && errors.url" x-text="errors.url"></p>
+                </div>
+                <div>
+                  <label for="f-service" class="mb-2 block text-sm font-semibold text-slate-200">Service needed</label>
+                  <select id="f-service" class="field" x-model="f.service" :class="tried && errors.service && 'invalid'" :aria-invalid="tried && !!errors.service">
+                    <option value="" disabled>Select a service</option>
+                    <option>Facebook &amp; TikTok Ads</option>
+                    <option>SEO</option>
+                    <option>Web Development</option>
+                    <option>Full Growth Package</option>
+                  </select>
+                  <p class="mt-1.5 text-xs text-red-300" x-show="tried && errors.service" x-text="errors.service"></p>
+                </div>
+                <div>
+                  <label for="f-budget" class="mb-2 block text-sm font-semibold text-slate-200">Monthly budget range</label>
+                  <select id="f-budget" class="field" x-model="f.budget" :class="tried && errors.budget && 'invalid'" :aria-invalid="tried && !!errors.budget">
+                    <option value="" disabled>Select a range</option>
+                    <option>Under $3,000</option>
+                    <option>$3,000 - $10,000</option>
+                    <option>$10,000 - $25,000</option>
+                    <option>$25,000+</option>
+                  </select>
+                  <p class="mt-1.5 text-xs text-red-300" x-show="tried && errors.budget" x-text="errors.budget"></p>
+                </div>
+
+                <!-- Spam honeypot (hidden from real users) -->
+                <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                <div class="sm:col-span-2 pt-2">
+                  <p x-show="error" x-cloak x-text="error" role="alert" class="mb-4 rounded-xl border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm text-red-200"></p>
+                  <button type="submit" class="btn-glow flex w-full items-center justify-center gap-2.5 rounded-2xl px-6 py-4 text-base font-semibold text-white disabled:opacity-70" :disabled="sending">
+                    <i data-lucide="calendar-check" class="h-5 w-5" x-show="!sending"></i>
+                    <svg x-show="sending" x-cloak class="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-opacity=".3" stroke-width="3"/><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+                    <span x-text="sending ? 'Sending...' : 'Schedule Free Strategy Session'"></span>
+                  </button>
+                  <p class="mt-4 flex items-center justify-center gap-2 text-xs text-slate-400"><i data-lucide="lock" class="h-3.5 w-3.5"></i> Your details stay private and are never shared or sold.</p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 9. FOOTER ============ -->
+  <footer class="relative border-t border-white/10 bg-slate-950/40">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 py-14">
+      <div class="grid gap-10 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a href="#top" class="inline-flex items-center gap-2.5 font-bold text-white">
+            <span class="grid place-items-center h-10 w-10 rounded-xl bg-gradient-to-br from-brand-500 to-aqua-500 text-sm font-extrabold">AH</span>
+            Abdul Hanan
+          </a>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">Senior Digital Growth Strategist &amp; Full-Stack Web Developer. Turning cold traffic into predictable revenue through data-driven ad performance and high-converting web solutions.</p>
+          <ul class="mt-6 flex items-center gap-3">
+            <li><a href="#" aria-label="LinkedIn" class="grid place-items-center h-10 w-10 rounded-xl border border-white/10 text-slate-300 hover:text-white hover:border-brand-400/60 hover:bg-white/5 transition"><i data-lucide="linkedin" class="h-5 w-5"></i></a></li>
+            <li><a href="#" aria-label="GitHub" class="grid place-items-center h-10 w-10 rounded-xl border border-white/10 text-slate-300 hover:text-white hover:border-brand-400/60 hover:bg-white/5 transition"><i data-lucide="github" class="h-5 w-5"></i></a></li>
+            <li><a href="#" aria-label="Twitter" class="grid place-items-center h-10 w-10 rounded-xl border border-white/10 text-slate-300 hover:text-white hover:border-brand-400/60 hover:bg-white/5 transition"><i data-lucide="twitter" class="h-5 w-5"></i></a></li>
+          </ul>
+        </div>
+        <nav class="md:col-span-3 md:col-start-8" aria-label="Footer">
+          <p class="text-sm font-semibold text-white">Explore</p>
+          <ul class="mt-4 space-y-3 text-sm text-slate-400">
+            <li><a class="hover:text-white transition" href="#services">Services</a></li>
+            <li><a class="hover:text-white transition" href="#work">Case Studies</a></li>
+            <li><a class="hover:text-white transition" href="#calculator">ROAS Calculator</a></li>
+            <li><a class="hover:text-white transition" href="#process">Framework</a></li>
+          </ul>
+        </nav>
+        <div class="md:col-span-2">
+          <p class="text-sm font-semibold text-white">Get started</p>
+          <ul class="mt-4 space-y-3 text-sm text-slate-400">
+            <li><a class="hover:text-white transition" href="#contact">Book a Free Call</a></li>
+            <li><a class="hover:text-white transition" href="#reviews">Client Reviews</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; <span id="year">2026</span> Abdul Hanan. All rights reserved.</p>
+        <a href="#" class="hover:text-slate-300 transition">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button type="button" id="toTop" aria-label="Back to top" class="fixed bottom-5 right-5 z-40 grid h-12 w-12 place-items-center rounded-2xl glass text-white opacity-0 pointer-events-none transition hover:border-brand-400/60"
+          onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i data-lucide="arrow-up" class="h-5 w-5"></i>
+  </button>
+
+  <script>
+    // Icons
+    if (window.lucide) lucide.createIcons();
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal
+    (function () {
+      const els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      // Alpine renders templated cards after load, so observe after it initialises
+      const start = () => document.querySelectorAll('.reveal').forEach(e => io.observe(e));
+      document.addEventListener('alpine:initialized', start);
+      setTimeout(start, 600); // fallback if Alpine event already fired
+    })();
+
+    // Animated stat counters
+    (function () {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const nodes = document.querySelectorAll('[data-count]');
+      if (reduce || !('IntersectionObserver' in window)) return;
+      const run = (el) => {
+        const target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0', 10);
+        const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+        const t0 = performance.now(), dur = 1600;
+        const tick = (t) => {
+          const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = pre + (target * eased).toFixed(dec) + suf;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      };
+      const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: 0.6 });
+      nodes.forEach(n => io.observe(n));
+    })();
+
+    // Back to top visibility
+    (function () {
+      const b = document.getElementById('toTop');
+      const toggle = () => {
+        const show = window.scrollY > 800;
+        b.classList.toggle('opacity-0', !show);
+        b.classList.toggle('pointer-events-none', !show);
+      };
+      window.addEventListener('scroll', toggle, { passive: true }); toggle();
+    })();
+  </script>
+</body>
+</html>
